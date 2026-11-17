@@ -512,9 +512,9 @@ if(cf._honey.value)return;
 d._subject='Portfolio inquiry from '+d.name;d._template='table';d._captcha='false';
 sb.disabled=true;sb.textContent='Sending\u2026';say('','');
 fetch(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)})
-.then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw new Error('send');})})
+.then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw new Error(j.message||('HTTP '+r.status));})})
 .then(function(){cf.reset();say('ok','Thanks! Your message was sent. I\u2019ll reply by email soon.')})
-.catch(function(){say('err','I couldn\u2019t send that directly, so I\u2019m opening your email app instead.');
+.catch(function(e){console.warn('FormSubmit:',e&&e.message);say('err','I couldn\u2019t send that directly ('+((e&&e.message)||'network error')+'), so I\u2019m opening your email app instead.');
 location.href='mailto:'+TO+'?subject='+encodeURIComponent('Project inquiry from '+d.name)+'&body='+encodeURIComponent(d.message+'\n\n'+d.name+' <'+d.email+'>')})
 .then(function(){sb.disabled=false;sb.textContent='Send me message \u2192'});
 });
