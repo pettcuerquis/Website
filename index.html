@@ -228,10 +228,11 @@ nav a:hover{opacity:.6}
 @media(max-width:760px){.exps{grid-template-columns:1fr}}
 .contact{padding:80px 0 30px}
 .cgrid{display:grid;grid-template-columns:1fr 1.6fr;gap:14px}
+.cgrid>*{min-width:0}
 .box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;font-size:.78rem}
 .box small,.box label{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 4px;font-weight:600}
 .box small:first-child,.box label:first-child{margin-top:0}
-.box a{color:var(--muted);display:block}
+.box a{color:var(--muted);display:block;overflow-wrap:anywhere}
 .box a:hover{color:var(--ink)}
 textarea,input{width:100%;font:400 .8rem Poppins;background:var(--paper);color:var(--ink);border:1px solid var(--ink);border-radius:4px;padding:10px;margin-bottom:12px}
 textarea{min-height:110px;resize:vertical}
@@ -369,6 +370,7 @@ header nav a:first-child{border-top:0}
 .chip2 .lg svg{width:16px;height:16px;display:block}
 @media(max-width:760px){.chip2 .lg{width:24px;height:24px}.chip2 .lg svg{width:14px;height:14px}}
 .soc{display:flex;gap:8px}
+@media(max-width:300px){.soc a:nth-child(2),.soc a:nth-child(4){display:none}}
 .soc a{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;transition:background .25s,color .25s,transform .25s}
 .soc a:hover{background:var(--accent);color:#000;transform:translateY(-2px)}
 .soc svg{width:16px;height:16px;fill:currentColor}
@@ -523,7 +525,7 @@ var last=-1;(function f(t){var k=Math.min(1,(t-s)/800),p=ld?k:Math.min(k,.9),n=M
 <section class="contact" id="contact"><div class="wrap"><h2>Contact</h2>
 <div class="cgrid">
 <div class="box"><small>Email</small><a href="mailto:pett.laurence@gmail.com">pett.laurence@gmail.com</a><small>Socials</small><a href="https://www.linkedin.com/in/pett-cuerquis/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/pettlaurence/" target="_blank" rel="noopener">Facebook</a><a href="https://stackoverflow.com/users/14622570/pett-laurence-cuerquis" target="_blank" rel="noopener">Stack Overflow</a><small>Resume</small><a href="https://pettcuerquis.com/resume/pett-laurence-cuerquis-resume.pdf">Download PDF ↓</a></div>
-<form class="box" id="cf" action="https://formsubmit.co/206c410922115c31cdec29c27a8b9857" method="POST" novalidate><label for="n">Your name</label><input id="n" name="name" placeholder="Your name" autocomplete="name" required><label for="e">Your email</label><input id="e" name="email" type="email" placeholder="you@example.com" autocomplete="email" required><label for="m">Your message</label><textarea id="m" name="message" placeholder="Write your message" required></textarea><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"><button class="btn on-cream" id="send" type="submit">Send me message →</button><p class="fs" id="fs" role="status" aria-live="polite"></p></form>
+<form class="box" id="cf" action="https://formsubmit.co/206c410922115c31cdec29c27a8b9857" method="POST" novalidate><label for="n">Your name</label><input id="n" name="name" placeholder="Your name" autocomplete="name" required><label for="e">Your email</label><input id="e" name="email" type="email" placeholder="you@example.com" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" title="Enter a full email address, like name@example.com" required><label for="m">Your message</label><textarea id="m" name="message" placeholder="Write your message" required></textarea><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px"><button class="btn on-cream" id="send" type="submit">Send me message →</button><p class="fs" id="fs" role="status" aria-live="polite"></p></form>
 </div>
 <div class="big"><p>Have a project in mind?</p><h2>Let’s work</h2></div>
 <footer><span>Based in Bukidnon, PH</span><span>© 2026 Pett Laurence Cuerquis</span></footer></div></section>
