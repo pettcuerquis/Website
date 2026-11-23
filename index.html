@@ -98,6 +98,8 @@ nav a:hover{opacity:.6}
 .phone{position:absolute;right:0;bottom:0;width:32%;background:#0b0b0b;border:5px solid #2a2a2a;border-radius:24px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.7);transform:translateZ(40px)}
 .phone::before{content:"";position:absolute;top:5px;left:50%;width:30%;height:6px;background:#000;border-radius:9px;transform:translateX(-50%);z-index:2}
 .phone .scr{aspect-ratio:9/19}
+@media(hover:none),(max-width:760px){.devices{perspective:none}.dv{transform-style:flat}.phone{transform:none;z-index:1}}
+@supports not (aspect-ratio:1){.desk .scr{height:0;padding-bottom:62.5%}.phone .scr{height:0;padding-bottom:211%}}
 .hint{font-size:.68rem;color:var(--dim);margin-top:14px}
 .hint a{text-decoration:underline}
 
